@@ -1,0 +1,23 @@
+.wrapper{
+    width: 75%;
+    margin: auto;
+    background: #aaa;
+}
+.nav{
+    text-align: center;
+}
+.list_voiture{
+    width: 50%;
+    margin: auto;
+}
+.index{
+    text-align: center;
+}
+.crea_form{
+    width: 50%;
+    margin: auto;
+    text-align: center;
+}
+.crea_form div{
+    padding: 0.5em;
+}
