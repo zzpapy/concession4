@@ -42,7 +42,7 @@
                 $result = $stmt->execute();
                 
                 $stmt->closeCursor();
-                return $result;
+                return  self::$bdd->lastInsertId();
                 
             }
             catch(\Exception $e){

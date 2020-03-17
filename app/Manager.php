@@ -32,6 +32,19 @@
             );
         }
 
+        public function findOneByName($nom){
+
+            $sql = "SELECT id
+                    FROM ".$this->tableName." a
+                    WHERE a.nom".$this->tableName." = :nom
+                    ";
+
+            return $this->getOneOrNullResult(
+                DAO::select($sql, ['nom' => $nom], false), 
+                $this->className
+            );
+        }
+
 
         public function add($data){
             $keys = array_keys($data);

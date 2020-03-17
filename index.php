@@ -3,7 +3,6 @@
 
     use Controller\HomeController;
 
-    var_dump($_POST);
     define('DS', DIRECTORY_SEPARATOR); // le caractère séparateur de dossier (/ ou \)
     // meilleure portabilité sur les différents systêmes.
     define('BASE_DIR', dirname(__FILE__).DS); // pour se simplifier la vie
@@ -16,6 +15,11 @@
     // var_dump($_GET);die;
     if(isset($_GET['action'])){
         $action = $_GET['action'];
+        if(isset($_POST["immat"]) && !empty($_POST)){
+            $action = "traitementCrea";
+            $id = $_POST;
+            $render = $ctrl->$action($id);
+        }
     }
     else $action = "home";
 
@@ -23,7 +27,5 @@
         $id = $_GET['id'];
     }
     else $id = null;
-
     $render = $ctrl->$action($id);
-// var_dump($render);
     require($render['view']);
