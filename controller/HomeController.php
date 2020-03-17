@@ -10,7 +10,7 @@
             $man = new VehiculeManager();
 
             $vehicules = $man->findAll();
-            var_dump($vehicules);
+
             return $this->home([
                 "view" => "liste.php",
                 "data" => $vehicules
@@ -29,14 +29,6 @@
             ]);
         }
         public function crea(){
-            return $this->home([
-                "view" => "crea.php",
-                "data" => ""
-            ]);
-        }
-        public function traitementCrea($tab){
-            $man = new VehiculeManager();
-            $new = $man->add($tab);
             return $this->home([
                 "view" => "crea.php",
                 "data" => ""
