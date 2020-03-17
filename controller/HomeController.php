@@ -37,13 +37,29 @@
                 "data" => $marques
             ]);
         }
+        public function liste($id,$nom){
+            $manager = new VehiculeManager();
+            $marques = $manager->findByMarque($id);
+            return $this->home([
+                "view" => "liste_marque.php",
+                "data" => $marques
+            ]);
+        }
         public function traitementCrea($tab){
             $man = new VehiculeManager($tab);
-            $tab["couleurs"] = json_encode($tab["couleurs"]);
-            // var_dump($tab["couleurs"]);die;
+            $tab["couleurs"] = json_encode([$tab["couleurs"],$tab["couleurs1"]]);
+            unset($tab["couleurs1"]);
             $new = $man->add($tab);
+            // var_dump($new);die;
             var_dump($this->index()["view"]);
             header("location:index.php?action=index");
+            // return require($this->index()["view"]);die;
+        }
+        public function traitementMarque($tab){
+            $man = new MarqueManager($tab);
+            // var_dump($tab);die;
+            $new = $man->add($tab);
+            header("location:index.php?action=crea");
             // return require($this->index()["view"]);die;
         }
         public function home($root){

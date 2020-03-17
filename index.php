@@ -15,8 +15,14 @@
     // var_dump($_GET);die;
     if(isset($_GET['action'])){
         $action = $_GET['action'];
+        // var_dump($_POST);die;
         if(isset($_POST["immat"]) && !empty($_POST)){
             $action = "traitementCrea";
+            $id = $_POST;
+            $render = $ctrl->$action($id);
+        }
+        if(isset($_POST["origine"]) && !empty($_POST)){
+            $action = "traitementMarque";
             $id = $_POST;
             $render = $ctrl->$action($id);
         }
@@ -26,6 +32,12 @@
     if(isset($_GET['id'])){
         $id = $_GET['id'];
     }
+    $nom = '';
+    if(isset($_GET['nom'])){
+        $nom = $_GET['nom'];
+        $id = $_GET['id'];
+    }
     else $id = null;
-    $render = $ctrl->$action($id);
+    var_dump($id);
+    $render = $ctrl->$action($id,$nom);
     require($render['view']);

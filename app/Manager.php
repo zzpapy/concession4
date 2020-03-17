@@ -53,16 +53,22 @@
                     (".implode(',', $keys).")
                     VALUES
                     ('".implode("','",$values)."')";
-
-                    
-            var_dump($sql);
             return DAO::insert($sql);
+        }
+        public function findByMarque($toto){
+            $sql = "SELECT *
+                    FROM ".$this->tableName." a WHERE marque_id =".$toto;
+                
+            return $this->getMultipleResults(
+                DAO::select($sql), 
+                $this->className
+            );
+
         }
         
         protected function getMultipleResults($rows, $class){
 
             $objects = [];
-
             foreach($rows as $row){
                 $objects[] = new $class($row);
             }

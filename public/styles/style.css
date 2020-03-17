@@ -3,12 +3,39 @@
     margin: auto;
     background: #aaa;
 }
+.container{
+    display: flex;
+    width: 80%;
+    justify-content: space-between ;
+    flex-wrap: wrap;
+    margin: auto;
+    text-align: center;
+}
+.titre{
+    text-align: center;
+}
+.voiture{
+    border: 1px solid black;
+    width: 33%;
+    margin: 2em;
+}
+.photo{
+    width:15,6em;
+    height: 15,6em;
+    margin: auto;
+}
+img{
+    width: 100%;
+}
 .nav{
     text-align: center;
 }
 .list_voiture{
-    width: 50%;
+    width: 100%;
     margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 .index{
     text-align: center;

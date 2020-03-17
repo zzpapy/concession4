@@ -10,6 +10,8 @@
         private $modele;
         private $couleurs;
         private $marque;
+        private $nb;
+        private $photo;
 
         public function __construct($data){         
             $this->hydrate($data);        
@@ -118,5 +120,45 @@
         public function __toString(){
 
             return $this->immat." - ".$this->modele;
+        }
+
+        /**
+         * Get the value of nb
+         */ 
+        public function getNb()
+        {
+                return $this->nb;
+        }
+
+        /**
+         * Set the value of nb
+         *
+         * @return  self
+         */ 
+        public function setNb($nb)
+        {
+                $this->nb = $nb;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of photo
+         */ 
+        public function getPhoto()
+        {
+                return $this->photo;
+        }
+
+        /**
+         * Set the value of photo
+         *
+         * @return  self
+         */ 
+        public function setPhoto($photo)
+        {
+                $this->photo = $photo;
+
+                return $this;
         }
     }
