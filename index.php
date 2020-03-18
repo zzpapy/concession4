@@ -16,9 +16,11 @@
     if(isset($_GET['action'])){
         $action = $_GET['action'];
         if(isset($_POST["immat"]) && !empty($_POST)){
+            // var_dump($_FILES);die;
             $action = "traitementCrea";
+            $file = $_FILES;
             $id = $_POST;
-            $render = $ctrl->$action($id);
+            $render = $ctrl->$action($id,$file);
         }
         if(isset($_POST["origine"]) && !empty($_POST)){
             $action = "traitementMarque";
