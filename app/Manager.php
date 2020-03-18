@@ -55,15 +55,23 @@
                     ('".implode("','",$values)."')";
             return DAO::insert($sql);
         }
-        public function findByMarque($toto){
+        public function update($data,$id){
+            var_dump($data);
+            $keys = array_keys($data);
+            $values = array_values($data);
+            $sql = "UPDATE ".$this->tableName."
+                    SET ".implode($keys)."=".json_encode(implode($values))."
+                    WHERE id_vehicule = ".$id;
+            return DAO::update($sql);
+        }
+        public function findByMarque($id){
             $sql = "SELECT *
-                    FROM ".$this->tableName." a WHERE marque_id =".$toto;
-                
-            return $this->getMultipleResults(
-                DAO::select($sql), 
-                $this->className
-            );
-
+                    FROM ".$this->tableName." a WHERE marque_id = :id";
+                    // var_dump($test);die;
+                    return $this->getMultipleResults(
+                        DAO::select($sql,["id"=>$id]), 
+                        $this->className
+                    );
         }
         
         protected function getMultipleResults($rows, $class){

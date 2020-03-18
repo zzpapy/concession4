@@ -19,10 +19,18 @@
                         
                         if(!is_null($v->getCouleurs())){
                             $i = 0;
+                            echo '<form action="" method="POST" class="crea_form">';
                             foreach ($v->getCouleurs() as $key => $value) { 
-                                echo '<li>'.$v->getCouleurs()[$i].'</li>';
+                                if($i != 0){
+                                    echo '<li><input type="color" name="couleurs1" value="'.$v->getCouleurs()[$i].'"'.$v->getCouleurs()[$i].'</li>';
+                                }
+                                else{
+                                    echo '<input type="hidden" name="id" value="'.$v->getId().'">';
+                                    echo '<li><input type="color" name="couleurs" value="'.$v->getCouleurs()[$i].'"'.$v->getCouleurs()[$i].'</li><input type="submit" name="action" value="update">';
+                                }
                                 $i++;
                             }
+                            echo '</form>';
                         }
                         else{
                             echo '<li>non renseigné</li>';

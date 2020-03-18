@@ -40,6 +40,7 @@
         public function liste($id,$nom){
             $manager = new VehiculeManager();
             $marques = $manager->findByMarque($id);
+            // var_dump($marques);die;
             return $this->home([
                 "view" => "liste_marque.php",
                 "data" => $marques
@@ -60,6 +61,18 @@
             // var_dump($tab);die;
             $new = $man->add($tab);
             header("location:index.php?action=crea");
+            // return require($this->index()["view"]);die;
+        }
+        public function update($tab){
+            // var_dump($tab);die;
+            $man = new VehiculeManager($tab);
+            $id = $tab["id"];
+            unset($tab["id"]);
+            $tab["couleurs"] = json_encode([$tab["couleurs"],$tab["couleurs1"]]);
+            unset($tab["couleurs1"]);
+            unset($tab["action"]);
+            $new = $man->update($tab,$id);
+            header("location:index.php?action=index");
             // return require($this->index()["view"]);die;
         }
         public function home($root){

@@ -5,7 +5,7 @@ foreach($render["content"] as $v){
     echo "<p class='index'><a href='index.php?action=voir&id=".$v->getId()."'>".$v->getMarque()->getNom()."</a></p>";
     echo "<div>".$v->getMarque()->getOrigine()."</div>";
         echo "<div>".$v->getModele()."</div>";
-        echo "<div>'Nombres de portes : '".$v->getNb()."</div>  
+        echo "<div>Nombres de portes : ".$v->getNb()."</div>  
         <div class='photo'>
             <img src=".$v->getPhoto()." alt=''>
         </div>              

@@ -10,12 +10,11 @@
 
     require("app/Autoloader.php");
     Autoloader::register();
-
+    // var_dump($_POST);
     $ctrl = new HomeController();
     // var_dump($_GET);die;
     if(isset($_GET['action'])){
         $action = $_GET['action'];
-        // var_dump($_POST);die;
         if(isset($_POST["immat"]) && !empty($_POST)){
             $action = "traitementCrea";
             $id = $_POST;
@@ -25,6 +24,13 @@
             $action = "traitementMarque";
             $id = $_POST;
             $render = $ctrl->$action($id);
+        }
+        if(isset($_POST["action"]) && $_POST["action"]=="update"){
+            // var_dump($_POST);die;
+            $action = "update";
+            $nom = $_POST;
+            $id = $_POST["id"];
+            $render = $ctrl->$action($nom,$id);
         }
     }
     else $action = "home"; 
@@ -38,6 +44,6 @@
         $id = $_GET['id'];
     }
     else $id = null;
-    var_dump($id);
+    // var_dump($id);
     $render = $ctrl->$action($id,$nom);
     require($render['view']);

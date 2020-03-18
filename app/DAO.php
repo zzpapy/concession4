@@ -49,6 +49,13 @@
                 echo $e->getMessage();
             }
         }
+        public static function update($sql){
+            $stmt = self::$bdd->prepare($sql);
+            var_dump($stmt);
+            $result = $stmt->execute();
+            $stmt->closeCursor();
+            return ($result == false) ? null : $result;
+        }
 
         /**
          * Cette méthode permet les requêtes de type SELECT
@@ -69,6 +76,7 @@
                     if(count($results) == 1){
                         $results = $results[0];
                     }
+                    // var_dump($results);die;
                 }
                 else $results = $stmt->fetch();
                 $stmt->closeCursor();

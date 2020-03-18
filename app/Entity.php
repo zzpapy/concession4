@@ -4,7 +4,7 @@
     abstract class Entity{
 
         protected function hydrate($data){
-             
+            //  var_dump($data);
             foreach($data as $field => $value){
 
                 //field = marque_id
