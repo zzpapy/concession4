@@ -44,6 +44,5 @@
         $id = $_GET['id'];
     }
     
-    var_dump($id);
     $render = $ctrl->$action($id,$nom);
     require($render['view']);

@@ -1,9 +1,9 @@
 <?php 
     // var_dump($render);
 ?>
-<div class="form">
+<div class="voiture">
     <h1>Création véhicule</h1>
-    <form action="" method="POST" class="crea_form">
+    <form action="" method="POST" class="crea_form" enctype="multipart/form-data">
         <div>        
             <input type="text" name="immat" placeholder="Immatriculation">        
         </div>
@@ -33,13 +33,15 @@
         <div>        
             <input type="text" name='motorisation' placeholder="motorisation">        
         </div>
-        <div>        
+        <div>   
+        Select image to upload:
+            <input type="file" name="fileToUpload" id="fileToUpload">  
             <input type="text" name='photo' placeholder="url photo">        
         </div>
         <div><input  type="submit"></div>
     </form>
 </div>
-<div class="form">
+<div class="voiture">
     <h1>Création marque</h1>
     <form action="" method="POST" class="crea_form">
         <div>        
@@ -51,15 +53,14 @@
         <input type="submit">
     </form>
 </div>
-<div class="form">
-    <h1>Afficher détail véhicule</h1>
+<!-- <div class="voiture">
+    <h1>Afficher véhicules par marques</h1>
     <form action="" class="crea_form">
         <a href=""></a>
         <?php
-            foreach ($render['content'] as $key => $value) {
-                echo "<div><a href='index.php?action=liste&nom=".$value->getNom()."&id=".$value->getId()."'>".$value->getNom()."</a></div>";
-            }
+            // foreach ($render['content'] as $key => $value) {
+            //     echo "<div><a href='index.php?action=liste&nom=".$value->getNom()."&id=".$value->getId()."'>".$value->getNom()."</a></div>";
+            // }
         ?>
-        <input type="text">
     </form>
-</div>
+</div> -->

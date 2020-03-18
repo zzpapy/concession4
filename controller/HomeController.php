@@ -76,10 +76,13 @@
             // return require($this->index()["view"]);die;
         }
         public function home($root){
+            $manager = new MarqueManager();
+            $marques = $manager->findAll();
             return [
                 "view" => VIEW_DIR."home.php",
                 "data" => VIEW_DIR.$root["view"],
-                "content" => $root["data"]
+                "content" => $root["data"],
+                "list" => $marques
             ];
         }
     }
