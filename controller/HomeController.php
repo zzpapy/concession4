@@ -22,7 +22,7 @@
             
             $man = new VehiculeManager();
 
-            $vehicule = $man->findOneById($id);
+            $vehicule = $man->findOneById($id); 
 
             return $this->home([
                 "view" => "voir.php",
