@@ -1,8 +1,8 @@
 <?php 
     // var_dump($render);
 ?>
-<div>
-
+<div class="form">
+    <h1>Création véhicule</h1>
     <form action="" method="POST" class="crea_form">
         <div>        
             <input type="text" name="immat" placeholder="Immatriculation">        
@@ -39,7 +39,8 @@
         <div><input  type="submit"></div>
     </form>
 </div>
-<div>
+<div class="form">
+    <h1>Création marque</h1>
     <form action="" method="POST" class="crea_form">
         <div>        
             <input type="text" name='nom' placeholder="Nom">        
@@ -50,7 +51,8 @@
         <input type="submit">
     </form>
 </div>
-<div>
+<div class="form">
+    <h1>Afficher détail véhicule</h1>
     <form action="" class="crea_form">
         <a href=""></a>
         <?php
