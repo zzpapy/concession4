@@ -5,7 +5,7 @@
     <div> 
         <?php
 
-            echo "<p>", $vehicule, "</p>";
+            echo "<p>", $vehicule, "</p>"; 
 
         ?>
 

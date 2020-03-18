@@ -12,7 +12,7 @@
         public function __construct(){
             parent::connect();
         }
-        
+         
 
         /*public function findAll(){
             return parent::findAll();

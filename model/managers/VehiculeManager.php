@@ -6,7 +6,7 @@
 
     class VehiculeManager extends Manager{
 
-        protected $className = "Model\Entities\Vehicule";
+        protected $className = "Model\Entities\Vehicule"; 
         protected $tableName = "vehicule";
 
         public function __construct(){

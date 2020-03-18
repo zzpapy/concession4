@@ -27,7 +27,7 @@
             $render = $ctrl->$action($id);
         }
     }
-    else $action = "home";
+    else $action = "home"; 
 
     if(isset($_GET['id'])){
         $id = $_GET['id'];

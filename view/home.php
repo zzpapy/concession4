@@ -10,7 +10,7 @@
 <div class="wrapper">
 <div class="nav">
     <a href="index.php?action=index">index voitures</a>
-    <a href="index.php?action=crea">création véhicule</a>
+    <a href="index.php?action=crea">création véhicule</a> 
 </div>
 <div class="container">
     <?php 

@@ -137,7 +137,7 @@
          */ 
         public function setNb($nb)
         {
-                $this->nb = $nb;
+                $this->nb = $nb; 
 
                 return $this;
         }

@@ -19,7 +19,7 @@
         }
 
         public function voir($id){
-            
+             
             $man = new VehiculeManager();
 
             $vehicule = $man->findOneById($id); 

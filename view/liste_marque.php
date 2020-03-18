@@ -12,7 +12,7 @@ foreach($render["content"] as $v){
         <div>
             <ul>Couleurs";
                 
-                if(!is_null($v->getCouleurs())){
+                if(!is_null($v->getCouleurs())){ 
                     $i = 0;
                     foreach ($v->getCouleurs() as $key => $value) {
                         echo '<li>'.$v->getCouleurs()[$i].'</li>';
