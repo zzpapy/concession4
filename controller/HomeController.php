@@ -21,7 +21,7 @@
         public function voir($id){
              
             $man = new VehiculeManager();
-
+            var_dump($id);
             $vehicule = $man->findOneById($id); 
 
             return $this->home([
@@ -40,7 +40,7 @@
         public function liste($id,$nom){
             $manager = new VehiculeManager();
             $marques = $manager->findByMarque($id);
-            // var_dump($marques);die;
+            // var_dump($marques,$id);die;
             return $this->home([
                 "view" => "liste_marque.php",
                 "data" => $marques

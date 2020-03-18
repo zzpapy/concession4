@@ -34,7 +34,7 @@
         }
     }
     else $action = "home"; 
-
+    $id = null;
     if(isset($_GET['id'])){
         $id = $_GET['id'];
     }
@@ -43,7 +43,7 @@
         $nom = $_GET['nom'];
         $id = $_GET['id'];
     }
-    else $id = null;
-    // var_dump($id);
+    
+    var_dump($id);
     $render = $ctrl->$action($id,$nom);
     require($render['view']);

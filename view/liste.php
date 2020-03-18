@@ -10,7 +10,7 @@
             echo "<p class='index'><a href='index.php?action=voir&id=".$v->getId()."'>".$v->getMarque()->getNom()."</a></p>";
             echo "<div>".$v->getMarque()->getOrigine()."</div>";
                 echo "<div>".$v->getModele()."</div>";
-                echo "<div>'Nombres de portes : '".$v->getNb()."</div>  
+                echo "<div>Nombres de portes : ".$v->getNb()."</div>  
                 <div class='photo'>
                     <img src=".$v->getPhoto()." alt=''>
                 </div>              
@@ -26,10 +26,11 @@
                                 }
                                 else{
                                     echo '<input type="hidden" name="id" value="'.$v->getId().'">';
-                                    echo '<li><input type="color" name="couleurs" value="'.$v->getCouleurs()[$i].'"'.$v->getCouleurs()[$i].'</li><input type="submit" name="action" value="update">';
+                                    echo '<li><input type="color" name="couleurs" value="'.$v->getCouleurs()[$i].'"'.$v->getCouleurs()[$i].'</li>';
                                 }
                                 $i++;
                             }
+                            echo '<li><input type="submit" name="action" value="update"></li>';
                             echo '</form>';
                         }
                         else{

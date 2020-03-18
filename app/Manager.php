@@ -68,17 +68,24 @@
             $sql = "SELECT *
                     FROM ".$this->tableName." a WHERE marque_id = :id";
                     // var_dump($test);die;
-                    return $this->getMultipleResults(
-                        DAO::select($sql,["id"=>$id]), 
-                        $this->className
-                    );
+            return $this->getMultipleResults(
+                DAO::select($sql,["id"=>$id]), 
+                $this->className
+            );
         }
         
         protected function getMultipleResults($rows, $class){
 
             $objects = [];
-            foreach($rows as $row){
-                $objects[] = new $class($row);
+            if(isset($rows[0])){
+                foreach($rows as $row){
+                    // if(is_array( $row)){}
+                    $objects[] = new $class($row);
+                }
+            }
+            else{
+                // var_dump(isset($rows[0]));
+                return new $class($rows);
             }
 
             return $objects;

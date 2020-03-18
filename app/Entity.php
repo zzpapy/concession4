@@ -4,13 +4,12 @@
     abstract class Entity{
 
         protected function hydrate($data){
-            //  var_dump($data);
             foreach($data as $field => $value){
-
+                
                 //field = marque_id
                 //fieldarray = ['marque','id']
                 $fieldArray = explode("_", $field);
- 
+                
                 if(isset($fieldArray[1]) && $fieldArray[1] == "id"){
                     $manName = ucfirst($fieldArray[0])."Manager";
                     $FQCName = "Model\Managers".DS.$manName;
@@ -21,6 +20,7 @@
                 
                 $method = "set".ucfirst($fieldArray[0]);
                 if(method_exists($this, $method)){
+                    // var_dump($value);
                     $this->$method($value);
                 }
 

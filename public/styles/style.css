@@ -2,6 +2,7 @@
     width: 75%;
     margin: auto;
     background: #aaa;
+    font-family: 'Lobster', cursive;
 }
 .container{
     display: flex;
@@ -18,10 +19,14 @@
     border: 1px solid black;
     width: 33%;
     margin: 2em;
+    padding: 1em;
+    background: white;
+    box-shadow: 2px 2px 2px black;
+    border-radius: 5%;
 }
 .photo{
-    width:15,6em;
-    height: 15,6em;
+    width:15.6em;
+    height: 15.6em;
     margin: auto;
 }
 img{
@@ -29,6 +34,15 @@ img{
 }
 .nav{
     text-align: center;
+}
+.nav a{
+    padding: 2em;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    background: white;
+    margin: 1em 0;
+
 }
 .list_voiture{
     width: 100%;
