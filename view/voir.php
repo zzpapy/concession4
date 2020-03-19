@@ -10,8 +10,9 @@
         echo "<p class='index'><a href='index.php?action=voir&id=".$render["content"]->getId()."'>".$render["content"]->getMarque()->getNom()."</a></p>";
         echo "<div>".$render["content"]->getMarque()->getOrigine()."</div>";
             echo "<div>".$render["content"]->getModele()."</div>";
-            echo "<div>Nombres de portes : ".$render["content"]->getNb()."</div>  
-            <div class='photo'>
+            echo "<div>Nombres de portes : ".$render["content"]->getNb()."</div>";
+            echo "<div>plaque : ".$render["content"]->getImmat()."</div>";
+            echo "<div class='photo'>
                 <img src=".$render["content"]->getPhoto()." alt=''>
             </div>              
             <div>
