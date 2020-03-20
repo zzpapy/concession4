@@ -11,27 +11,24 @@
 <body>
 <div class="wrapper">
 <div class="nav nav_nav">
+    <a href="index.php">Accueil</a>            
     <a href="index.php?action=index">index voitures</a>
     <a href="index.php?action=crea">création</a> 
-</div>
-<div class="nav">
-    <h1>Afficher véhicules par marques</h1>
-    <div class="">
-        <?php
-            foreach ($render['list'] as $key => $value) {
-                echo "<a href='index.php?action=liste&nom=".$value->getNom()."&id=".$value->getId()."'>".$value->getNom()."</a>";
-            }
-        ?>
-    </div>
+    <!-- <button id="ajaxbtn">Surprise en Ajax !</button> -> cliqué <span id="nbajax">0</span> fois -->
+    <h4>recherche véhicules par plaques</h4>
+    <input type="text" id="recherche">
+    <div class="affich"></div>
 </div>
 <div class="container">
     <?php 
-    if(isset($render["content"])){
-        $content = $render["data"];
-        require $content; 
-    }
+    echo $page;
     ?>
 </div>
 </div>
+<script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+    <script src="public/scripts/script.js"></script>
 </body>
 </html>

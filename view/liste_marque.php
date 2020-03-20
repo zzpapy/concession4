@@ -1,10 +1,9 @@
 <?php 
 
+$vehicules = $result["data"]["vehicules"];
+if(is_array($vehicules)){
 
-if(is_array($render["content"])){
-
-    foreach($render["content"] as $v){
-        // var_dump($v);
+    foreach($vehicules as $v){
         echo "<div class='voiture'><h1>".$v->getMarque()->getNom()."</h1>";
         echo "<p class='index'><a href='index.php?action=voir&id=".$v->getId()."'>".$v->getMarque()->getNom()."</a></p>";
         echo "<div>".$v->getMarque()->getOrigine()."</div>";
@@ -32,21 +31,21 @@ if(is_array($render["content"])){
     }
 }
 else{
-    echo "<div class='voiture'><h1>".$render["content"]->getMarque()->getNom()."</h1>";
-        echo "<p class='index'><a href='index.php?action=voir&id=".$render["content"]->getId()."'>".$render["content"]->getMarque()->getNom()."</a></p>";
-        echo "<div>".$render["content"]->getMarque()->getOrigine()."</div>";
-            echo "<div>".$render["content"]->getModele()."</div>";
-            echo "<div>Nombres de portes : ".$render["content"]->getNb()."</div>  
+    echo "<div class='voiture'><h1>".$vehicules->getMarque()->getNom()."</h1>";
+        echo "<p class='index'><a href='index.php?action=voir&id=".$vehicules->getId()."'>".$vehicules->getMarque()->getNom()."</a></p>";
+        echo "<div>".$vehicules->getMarque()->getOrigine()."</div>";
+            echo "<div>".$vehicules->getModele()."</div>";
+            echo "<div>Nombres de portes : ".$vehicules->getNb()."</div>  
             <div class='photo'>
-                <img src=".$render["content"]->getPhoto()." alt=''>
+                <img src=".$vehicules->getPhoto()." alt=''>
             </div>              
             <div>
                 <ul>Couleurs";
                     
-                    if(!is_null($render["content"]->getCouleurs())){ 
+                    if(!is_null($vehicules->getCouleurs())){ 
                         $i = 0;
-                        foreach ($render["content"]->getCouleurs() as $key => $value) {
-                            echo '<li>'.$render["content"]->getCouleurs()[$i].'</li>';
+                        foreach ($vehicules->getCouleurs() as $key => $value) {
+                            echo '<li>'.$vehicules->getCouleurs()[$i].'</li>';
                             $i++;
                         }
                     }

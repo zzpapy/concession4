@@ -25,7 +25,7 @@
                     FROM ".$this->tableName." a
                     WHERE a.id_".$this->tableName." = :id
                     ";
-
+            // var_dump($id);
             return $this->getOneOrNullResult(
                 DAO::select($sql, ['id' => $id], false), 
                 $this->className
@@ -56,7 +56,7 @@
             return DAO::insert($sql);
         }
         public function update($data,$id){
-            var_dump($data);
+            // var_dump($data);
             $keys = array_keys($data);
             $values = array_values($data);
             $sql = "UPDATE ".$this->tableName."
@@ -64,15 +64,15 @@
                     WHERE id_vehicule = ".$id;
             return DAO::update($sql);
         }
-        public function findByMarque($id){
-            $sql = "SELECT *
-                    FROM ".$this->tableName." a WHERE marque_id = :id";
-                    // var_dump($test);die;
-            return $this->getMultipleResults(
-                DAO::select($sql,["id"=>$id]), 
-                $this->className
-            );
-        }
+        // public function findByMarque($id){
+        //     $sql = "SELECT *
+        //             FROM ".$this->tableName." a WHERE marque_id = :id";
+        //             // var_dump($id);die;
+        //     return $this->getMultipleResults(
+        //         DAO::select($sql,["id"=>$id]), 
+        //         $this->className
+        //     );
+        // }
         
         protected function getMultipleResults($rows, $class){
 
@@ -97,6 +97,18 @@
                 return new $class($row);
             }
             return false;
+        }
+        public function recherche($char){
+
+            $sql = " SELECT a.immat, a.id_vehicule
+                    FROM ".$this->tableName." a
+                    WHERE a.immat LIKE '%". $char ."%' ";
+                    // var_dump($char);die;
+
+            return $this->getMultipleResults(
+                DAO::select($sql), 
+                $this->className
+            );
         }
 
     }

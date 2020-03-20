@@ -1,27 +1,27 @@
 <?php
-    $vehicule = $render["content"];
+    $vehicule = $result["data"];
 ?>
 
     <div> 
         <?php
 
             // echo "<p>", $vehicule, "</p>"; 
-            echo "<div class='voiture'><h1>".$render["content"]->getMarque()->getNom()."</h1>";
-        echo "<p class='index'><a href='index.php?action=voir&id=".$render["content"]->getId()."'>".$render["content"]->getMarque()->getNom()."</a></p>";
-        echo "<div>".$render["content"]->getMarque()->getOrigine()."</div>";
-            echo "<div>".$render["content"]->getModele()."</div>";
-            echo "<div>Nombres de portes : ".$render["content"]->getNb()."</div>";
-            echo "<div>plaque : ".$render["content"]->getImmat()."</div>";
+            echo "<div class='voiture'><h1>".$vehicule->getMarque()->getNom()."</h1>";
+        echo "<p class='index'><a href='index.php?action=voir&id=".$vehicule->getId()."'>".$vehicule->getMarque()->getNom()."</a></p>";
+        echo "<div>".$vehicule->getMarque()->getOrigine()."</div>";
+            echo "<div>".$vehicule->getModele()."</div>";
+            echo "<div>Nombres de portes : ".$vehicule->getNb()."</div>";
+            echo "<div>plaque : ".$vehicule->getImmat()."</div>";
             echo "<div class='photo'>
-                <img src=".$render["content"]->getPhoto()." alt=''>
+                <img src=".$vehicule->getPhoto()." alt=''>
             </div>              
             <div>
                 <ul>Couleurs";
                     
-                    if(!is_null($render["content"]->getCouleurs())){ 
+                    if(!is_null($vehicule->getCouleurs())){ 
                         $i = 0;
-                        foreach ($render["content"]->getCouleurs() as $key => $value) {
-                            echo '<li>'.$render["content"]->getCouleurs()[$i].'</li>';
+                        foreach ($vehicule->getCouleurs() as $key => $value) {
+                            echo '<li>'.$vehicule->getCouleurs()[$i].'</li>';
                             $i++;
                         }
                     }

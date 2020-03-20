@@ -1,5 +1,5 @@
 <?php 
-    // var_dump($render);
+    // var_dump($result);
 ?>
 <div class="voiture">
     <h1>Création véhicule</h1>
@@ -11,7 +11,7 @@
             <select name="marque_id" id="">
                 <option value="">Sélectionner marque</option>
                 <?php 
-                    foreach ($render['content'] as $key => $value) {
+                    foreach ($result['data'] as $key => $value) {
                         echo "<option value='".$value->getId()."'>".$value."</option>";
                     }
                 ?>
@@ -21,10 +21,12 @@
         <div>        
             <input type="text" name="modele" placeholder="Modele">        
         </div>
-        <div>        
+        <div> 
+            <label for="">couleur n° 1</label>       
             <input type="color" name='couleurs' placeholder="couleur">        
         </div>
-        <div>        
+        <div> 
+            <label for="">couleur n° 2</label>         
             <input type="color" name='couleurs1' placeholder="couleur">        
         </div>
         <div>        
@@ -58,7 +60,7 @@
     <form action="" class="crea_form">
         <a href=""></a>
         <?php
-            // foreach ($render['content'] as $key => $value) {
+            // foreach ($result['data'] as $key => $value) {
             //     echo "<div><a href='index.php?action=liste&nom=".$value->getNom()."&id=".$value->getId()."'>".$value->getNom()."</a></div>";
             // }
         ?>

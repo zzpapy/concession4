@@ -51,7 +51,7 @@
         }
         public static function update($sql){
             $stmt = self::$bdd->prepare($sql);
-            var_dump($stmt);
+            // var_dump($stmt);
             $result = $stmt->execute();
             $stmt->closeCursor();
             return ($result == false) ? null : $result;
