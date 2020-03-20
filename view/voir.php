@@ -17,13 +17,23 @@
             </div>              
             <div>
                 <ul>Couleurs";
+                
                     
                     if(!is_null($vehicule->getCouleurs())){ 
                         $i = 0;
+                        echo '<form action="" method="POST" class="crea_form">';
                         foreach ($vehicule->getCouleurs() as $key => $value) {
-                            echo '<li>'.$vehicule->getCouleurs()[$i].'</li>';
+                            if($i != 0){
+                                echo '<li><input type="color" name="couleurs1" value="'.$vehicule->getCouleurs()[$i].'"'.$vehicule->getCouleurs()[$i].'</li>';
+                            }
+                            else{
+                                echo '<input type="hidden" name="id" value="'.$vehicule->getId().'">';
+                                echo '<li><input type="color" name="couleurs" value="'.$vehicule->getCouleurs()[$i].'"'.$vehicule->getCouleurs()[$i].'</li>';
+                            }
                             $i++;
                         }
+                        echo '<li><input type="submit" name="action" value="update"></li>';
+                        echo '</form>';
                     }
                     else{
                         echo '<li>non renseigné</li>';

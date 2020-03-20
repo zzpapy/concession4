@@ -40,3 +40,12 @@ $("#recherche").on("keyup", function(){
         }
     )
 })
+window.addEventListener('scroll', function() {
+    $(".nav").addClass("color_head")
+    var test = document.querySelector('.nav')
+    bounding = test.getBoundingClientRect();
+    if(bounding.top == 8){
+        $(".nav").removeClass("color_head")
+    }
+    console.log(bounding.top)
+})
