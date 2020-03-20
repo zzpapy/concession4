@@ -1,7 +1,7 @@
 <?php 
 
 $vehicules = $result["data"]["vehicules"];
-if(is_array($vehicules)){
+if(is_array($vehicules) && !is_null($vehicules)){
 
     foreach($vehicules as $v){
         echo "<div class='voiture'><h1>".$v->getMarque()->getNom()."</h1>";
@@ -30,7 +30,7 @@ if(is_array($vehicules)){
     </div>";
     }
 }
-else{
+else if(!is_null($vehicules)){
     echo "<div class='voiture'><h1>".$vehicules->getMarque()->getNom()."</h1>";
         echo "<p class='index'><a href='index.php?action=voir&id=".$vehicules->getId()."'>".$vehicules->getMarque()->getNom()."</a></p>";
         echo "<div>".$vehicules->getMarque()->getOrigine()."</div>";
@@ -55,5 +55,8 @@ else{
                echo "</ul>
             </div>
     </div>";
+}
+else{
+    echo "<div><h2>Aucun véhicule de la marque</h2></div>";
 }
 ?>

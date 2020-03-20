@@ -36,7 +36,9 @@
             <input type="text" name='motorisation' placeholder="motorisation">        
         </div>
         <div>   
-        Select image to upload:
+        <div>
+            <p>choisir upload ou lien</p>
+        </div>
             <input type="file" name="fileToUpload" id="fileToUpload">  
             <input type="text" name='photo' placeholder="url photo">        
         </div>

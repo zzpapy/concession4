@@ -59,6 +59,7 @@
             ];
         }
             public function traitementCrea($tab,$file){
+                // var_dump($tab);die;
             if(isset($_FILES) && !empty($_FILES["fileToUpload"]["name"])){
 
                 $target_dir = "public/images/";
@@ -139,7 +140,6 @@
             $res = $man->recherche($char);
             $i = 0;
             $tab = [];
-            // var_dump($res);
             if(!is_null($res)){
                 if(is_object($res) ){
                     return json_encode([$res->getImmat(),$res->getId()]);
@@ -151,9 +151,6 @@
                     }
                 }
             }
-            return json_encode($tab);
-          
-            
-            
+            return json_encode($tab);           
         }
     }

@@ -47,8 +47,21 @@
 
 
         public function add($data){
+            $data = array(
+                'immat'   => FILTER_SANITIZE_STRING,
+                'marque_id'    => FILTER_VALIDATE_INT,
+                'modele'      => FILTER_SANITIZE_STRING,
+                'couleurs' => FILTER_SANITIZE_STRING,
+                'nb_portes'    => FILTER_VALIDATE_INT,
+                'motorisation' => FILTER_SANITIZE_STRING,
+                'photo' => FILTER_SANITIZE_STRING
+                
+            );
+            $myinputs = filter_input_array(INPUT_POST, $data);
+            var_dump($data);die;
             $keys = array_keys($data);
             $values = array_values($data);
+            
             $sql = "INSERT INTO ".$this->tableName."
                     (".implode(',', $keys).")
                     VALUES
