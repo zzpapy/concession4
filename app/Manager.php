@@ -83,6 +83,9 @@
                     $objects[] = new $class($row);
                 }
             }
+            else if($rows == null){
+                return null;
+            }
             else{
                 // var_dump(isset($rows[0]));
                 return new $class($rows);

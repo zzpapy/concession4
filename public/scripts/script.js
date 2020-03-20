@@ -27,16 +27,22 @@ $("#recherche").on("keyup", function(){
            if(JSON.parse(result).length == 2){
             $(".affich").append("<div><a href='?action=voir&id="+JSON.parse(result)[1]+"'>"+JSON.parse(result)[0]+"</a>")
            }
-           else{
-               while(i < JSON.parse(result).length){
-                   $.get(
-                       "index.php.action=voir&id="+JSON.parse(result)[i][1]+""
-                   )
-                console.log(JSON.parse(result)[i])
-                $(".affich").append("<div><a href='?action=voir&id="+JSON.parse(result)[i][1]+"'>"+JSON.parse(result)[i][0]+"</a>")
-                i++    
-               }
-           }
+           else if(JSON.parse(result).length != 0){
+               console.log(result)
+              
+                   while(i < JSON.parse(result).length){
+                       $.get(
+                        //    "index.php.action=voir&id="+JSON.parse(result)[i][1]+""
+                       )
+                        console.log(JSON.parse(result)[i])
+                        $(".affich").append("<div><a href='?action=voir&id="+JSON.parse(result)[i][1]+"'>"+JSON.parse(result)[i][0]+"</a></div>")
+                        i++    
+                   }
+               
+            }
+            else{
+            $(".affich").append("<div>pas de résultats</div>")
+            }
         }
     )
 })

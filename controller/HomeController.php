@@ -127,16 +127,7 @@
             $new = $man->update($tab,$id);
             header("location:index.php?action=index");
         }
-        public function home($root){
-            $manager = new MarqueManager();
-            $marques = $manager->findAll();
-            return [
-                "view" => VIEW_DIR."home.php",
-                "data" => VIEW_DIR.$root["view"],
-                "content" => $root["data"],
-                "list" => $marques
-            ];
-        }
+
         public function ajax(){
             $nb = $_GET['nb'];
             $nb++;
@@ -149,13 +140,15 @@
             $i = 0;
             $tab = [];
             // var_dump($res);
-            if(is_object($res) ){
-                return json_encode([$res->getImmat(),$res->getId()]);
-            }
-            else{
-                while($i < count($res)){
-                    array_push($tab,[$res[$i]->getImmat(),$res[$i]->getId()]);
-                    $i++;
+            if(!is_null($res)){
+                if(is_object($res) ){
+                    return json_encode([$res->getImmat(),$res->getId()]);
+                }
+                else{
+                    while($i < count($res)){
+                        array_push($tab,[$res[$i]->getImmat(),$res[$i]->getId()]);
+                        $i++;
+                    }
                 }
             }
             return json_encode($tab);
