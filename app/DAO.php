@@ -39,8 +39,8 @@
         public static function insert($sql){
             try{
                 $stmt = self::$bdd->prepare($sql);
+                // var_dump($sql);die;
                 $result = $stmt->execute();
-                
                 $stmt->closeCursor();
                 return  self::$bdd->lastInsertId();
                 

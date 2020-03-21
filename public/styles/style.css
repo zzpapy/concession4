@@ -12,6 +12,31 @@
     margin: auto;
     text-align: center;
 }
+.menu{
+    position: fixed;
+    top: 4em;
+    left: 4em;
+    font-size: 2em;
+    z-index: 1;
+}
+.hide{
+    display: none;
+}
+.voiture_seul{
+    width:100%;
+    border: 1px solid black;
+    margin: 2em;
+    padding: 1em;
+    background: white;
+    box-shadow: 2px 2px 2px black;
+    border-radius: 5%;
+    text-transform: uppercase;
+    font-size: 2em;
+}
+.voiture_seul .photo{
+    width:100%;
+    height: auto;
+}
 .titre{
     text-align: center;
 }
@@ -97,4 +122,19 @@ img{
 }
 .crea_form div{
     padding: 0.5em;
+}
+.affich{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.affich > div{
+    width: 25%;
+}
+.affich > div > div a{
+    width: 80%;
+}
+.voiture_js a{
+    width: 100%;
+    margin: 0;
 }

@@ -126,7 +126,7 @@
             unset($tab["couleurs1"]);
             unset($tab["action"]);
             $new = $man->update($tab,$id);
-            header("location:index.php?action=index");
+            header("location:index.php?action=voir&id=".$id);
         }
 
         public function ajax(){
@@ -140,17 +140,22 @@
             $res = $man->recherche($char);
             $i = 0;
             $tab = [];
+            // var_dump($res);
             if(!is_null($res)){
                 if(is_object($res) ){
-                    return json_encode([$res->getImmat(),$res->getId()]);
+                    return json_encode(["immat"=>$res->getImmat(),"id"=>$res->getId(),"photo"=>$res->getPhoto()]);
                 }
                 else{
                     while($i < count($res)){
-                        array_push($tab,[$res[$i]->getImmat(),$res[$i]->getId()]);
+                        array_push($tab,["immat"=>$res[$i]->getImmat(),"id"=>$res[$i]->getId(),"photo"=>$res[$i]->getPhoto()]);
                         $i++;
                     }
                 }
             }
             return json_encode($tab);           
+        }
+        public function liste_recherche(){
+            var_dump($_GET);
+            // return json_encode($tab);           
         }
     }

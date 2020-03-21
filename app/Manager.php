@@ -47,20 +47,25 @@
 
 
         public function add($data){
-            $data = array(
-                'immat'   => FILTER_SANITIZE_STRING,
-                'marque_id'    => FILTER_VALIDATE_INT,
-                'modele'      => FILTER_SANITIZE_STRING,
-                'couleurs' => FILTER_SANITIZE_STRING,
-                'nb_portes'    => FILTER_VALIDATE_INT,
-                'motorisation' => FILTER_SANITIZE_STRING,
-                'photo' => FILTER_SANITIZE_STRING
-                
-            );
-            $myinputs = filter_input_array(INPUT_POST, $data);
-            var_dump($data);die;
+            if(in_array($data["couleurs"],$data)){
+                $couleurs = $data["couleurs"];
+                // var_dump(in_array($data["couleurs"],$data));die;
+                $data = array(
+                    'immat'   => FILTER_SANITIZE_STRING,
+                    'marque_id'    => FILTER_VALIDATE_INT,
+                    'modele'      => FILTER_SANITIZE_STRING,
+                    'couleurs' => FILTER_SANITIZE_STRING,
+                    'nb_portes'    => FILTER_VALIDATE_INT,
+                    'motorisation' => FILTER_SANITIZE_STRING,
+                    'photo' => FILTER_SANITIZE_STRING
+                    
+                );
+                $data = filter_input_array(INPUT_POST, $data);
+                $data["couleurs"] = $couleurs;
+            }
             $keys = array_keys($data);
             $values = array_values($data);
+            // var_dump($data);die;
             
             $sql = "INSERT INTO ".$this->tableName."
                     (".implode(',', $keys).")
@@ -116,9 +121,9 @@
         }
         public function recherche($char){
 
-            $sql = " SELECT a.immat, a.id_vehicule
+            $sql = " SELECT a.immat, a.id_vehicule, a.photo
                     FROM ".$this->tableName." a
-                    WHERE a.immat LIKE '%". $char ."%' ";
+                    WHERE a.immat LIKE '%". $char ."%'";
                     // var_dump($char);die;
 
             return $this->getMultipleResults(

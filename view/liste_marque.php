@@ -8,24 +8,33 @@ if(is_array($vehicules) && !is_null($vehicules)){
         echo "<p class='index'><a href='index.php?action=voir&id=".$v->getId()."'>".$v->getMarque()->getNom()."</a></p>";
         echo "<div>".$v->getMarque()->getOrigine()."</div>";
             echo "<div>".$v->getModele()."</div>";
-            echo "<div>Nombres de portes : ".$v->getNb()."</div>  
-            <div class='photo'>
-                <img src=".$v->getPhoto()." alt=''>
-            </div>              
+            echo "<div>Nombres de portes : ".$v->getNb()."</div>"; 
+            echo "<a href='index.php?action=voir&id=".$v->getId()."'><div class='photo'>
+                    <img src=".$v->getPhoto()." alt=''></a>
+                </div>             
             <div>
-                <ul>Couleurs";
+                <div>Couleurs";
                     
-                    if(!is_null($v->getCouleurs())){ 
-                        $i = 0;
-                        foreach ($v->getCouleurs() as $key => $value) {
-                            echo '<li>'.$v->getCouleurs()[$i].'</li>';
-                            $i++;
+                if(!is_null($v->getCouleurs())){ 
+                    $i = 0;
+                    echo '<form action="" method="POST" class="crea_form">';
+                    foreach ($v->getCouleurs() as $key => $value) {
+                        if($i != 0){
+                            echo '<span><input type="color" name="couleurs1" value="'.$v->getCouleurs()[$i].'"'.$v->getCouleurs()[$i].'</span>';
                         }
+                        else{
+                            echo '<input type="hidden" name="id" value="'.$v->getId().'">';
+                            echo '<span><input type="color" name="couleurs" value="'.$v->getCouleurs()[$i].'"'.$v->getCouleurs()[$i].'</span>';
+                        }
+                        $i++;
                     }
-                    else{
-                        echo '<li>non renseigné</li>';
-                    }
-               echo "</ul>
+                    echo '<span><input type="submit" name="action" value="update"></span>';
+                    echo '</form>';
+                }
+                else{
+                    echo '<span>non renseigné</span>';
+                }
+               echo "</div>
             </div>
     </div>";
     }

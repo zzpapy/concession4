@@ -23,22 +23,27 @@ $("#recherche").on("keyup", function(){
         function(result){
             $(".affich").html('');
            i = 0
-           console.log(JSON.parse(result))
-           if(JSON.parse(result).length == 2){
-            $(".affich").append("<div><a href='?action=voir&id="+JSON.parse(result)[1]+"'>"+JSON.parse(result)[0]+"</a>")
-           }
-           else if(JSON.parse(result).length != 0){
-               console.log(result)
-              
+        //    console.log(Array.isArray(JSON.parse(result)))
+           if(!Array.isArray(JSON.parse(result))){
+               photo = JSON.parse(result)["photo"]
+               $(".affich").append("<div><div><a href='?action=voir&id="+JSON.parse(result).id+"><div class='voiture_js'><img src="+photo+">"+JSON.parse(result).immat+"</a></div></div>")
+               console.log(JSON.parse(result).immat)
+            }
+            else if(JSON.parse(result).length != 0){
+                
+               //    $.get(
+                   //        "index.php.action=liste_recherche&id="+JSON.parse(result)+""
+                   //    )
                    while(i < JSON.parse(result).length){
-                       $.get(
-                        //    "index.php.action=voir&id="+JSON.parse(result)[i][1]+""
-                       )
-                        console.log(JSON.parse(result)[i])
-                        $(".affich").append("<div><a href='?action=voir&id="+JSON.parse(result)[i][1]+"'>"+JSON.parse(result)[i][0]+"</a></div>")
+                        // console.log(JSON.parse(result)[i]["photo"])
+                        photo = JSON.parse(result)[i]["photo"]
+                        $(".affich").append("<div><div><a href='?action=voir&id="+JSON.parse(result)[i]["id"]+"'>"+JSON.parse(result)[i]["immat"]+"<img src="+photo+"></a></div></div>")
                         i++    
                    }
-               
+                   if($("#recherche").val() == 0){
+                       console.log($(".affich").length)
+                       $(".affich").empty()
+                   }
             }
             else{
             $(".affich").append("<div>pas de résultats</div>")
@@ -46,12 +51,13 @@ $("#recherche").on("keyup", function(){
         }
     )
 })
-window.addEventListener('scroll', function() {
-    $(".nav").addClass("color_head")
-    var test = document.querySelector('.nav')
-    bounding = test.getBoundingClientRect();
-    if(bounding.top == 8){
-        $(".nav").removeClass("color_head")
-    }
-    console.log(bounding.top)
-})
+// window.addEventListener('scroll', function() {
+//     $(".menu").removeClass("hide")
+//     $(".nav").addClass("hide")
+// })
+// $(".menu").on("click",function(){
+//     console.log('toto')
+//     $(this).addClass("hide")
+//     $(".nav").removeClass("hide")
+// })
+
