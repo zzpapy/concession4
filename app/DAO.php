@@ -39,10 +39,10 @@
         public static function insert($sql){
             try{
                 $stmt = self::$bdd->prepare($sql);
-                // var_dump($sql);die;
+                // var_dump($stmt);die;
                 $result = $stmt->execute();
                 $stmt->closeCursor();
-                return  self::$bdd->lastInsertId();
+                // return  self::$bdd->lastInsertId();
                 
             }
             catch(\Exception $e){
@@ -66,7 +66,7 @@
          * 
          * @return array|null les enregistrements en FETCH_ASSOC ou null si aucun résultat
          */
-        public static function select($sql, $params = null, bool $multiple = true):?array
+        public static function select($sql, $params = null, bool $multiple = true)
         {
             try{
                 $stmt = self::$bdd->prepare($sql);

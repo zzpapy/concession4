@@ -78,15 +78,16 @@
                     }
                 }
                 // Check if file already exists
+                // var_dump($uploadOk);
                 if (file_exists($target_file)) {
                     echo "Sorry, file already exists.";
                     $uploadOk = 0;
                 }
                 // Check file size
-                if ($file["fileToUpload"]["size"] > 500000) {
-                    echo "Sorry, your file is too large.";
-                    $uploadOk = 0;
-                }
+                // if ($file["fileToUpload"]["size"] > 500000) {
+                    // echo "Sorry, your file is too large.";
+                    // $uploadOk = 0;
+                // }
                 // Allow certain file formats
                 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
                 && $imageFileType != "gif" ) {

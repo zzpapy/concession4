@@ -44,32 +44,34 @@
                 $this->className
             );
         }
-
-
+        
+        
         public function add($data){
             if(in_array($data["couleurs"],$data)){
                 $couleurs = $data["couleurs"];
-                // var_dump(in_array($data["couleurs"],$data));die;
+                $photo = $data["photo"];
                 $data = array(
                     'immat'   => FILTER_SANITIZE_STRING,
                     'marque_id'    => FILTER_VALIDATE_INT,
                     'modele'      => FILTER_SANITIZE_STRING,
                     'couleurs' => FILTER_SANITIZE_STRING,
                     'nb_portes'    => FILTER_VALIDATE_INT,
-                    'motorisation' => FILTER_SANITIZE_STRING,
-                    'photo' => FILTER_SANITIZE_STRING
+                    'motorisation' => FILTER_SANITIZE_STRING
                     
                 );
                 $data = filter_input_array(INPUT_POST, $data);
                 $data["couleurs"] = $couleurs;
+                $data["photo"] = $photo;
             }
             else{
+                // var_dump('toto');
                 $data = array(
                     'origine'   => FILTER_SANITIZE_STRING,
                     'nom'      => FILTER_SANITIZE_STRING                    
                 );
                 $data = filter_input_array(INPUT_POST, $data);
             }
+            // var_dump($data);die;
             $keys = array_keys($data);
             $values = array_values($data);
             // var_dump($data);die;
