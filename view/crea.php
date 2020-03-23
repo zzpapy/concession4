@@ -23,12 +23,14 @@
         </div>
         <div> 
             <label for="">couleur n° 1</label>       
-            <input type="color" name='couleurs' placeholder="couleur">        
+            <input type="color" name='couleurs[]' placeholder="couleur">        
         </div>
-        <div> 
+        <span class="choixPlus fas fa-plus"></span>
+        <div class="couleur_suppl"></div>
+        <!-- <div class = "deux hide"> 
             <label for="">couleur n° 2</label>         
-            <input type="color" name='couleurs1' placeholder="couleur">        
-        </div>
+            <input type="color" name='couleurs1' placeholder="couleur" value="">        
+        </div> -->
         <div>        
             <input type="text" name='nb_portes' placeholder="nombre de portes">        
         </div>

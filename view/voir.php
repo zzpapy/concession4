@@ -1,8 +1,8 @@
 <?php
     $vehicule = $result["data"];
+    
 ?>
 
-    
         <?php
 
             // echo "<p>", $vehicule, "</p>"; 
@@ -16,19 +16,21 @@ echo "<div class='voiture_seul'><h1>".$vehicule->getMarque()->getNom()."</h1>";
         <img src=".$vehicule->getPhoto()." alt=''>
     </div>              
     <div>
-        <div>Couleurs";
-        
-            
+        <div>Couleurs";?>
+            <?php
             if(!is_null($vehicule->getCouleurs())){ 
-                $i = 0;
-                echo '<form action="" method="POST" class="crea_form">';
-                foreach ($vehicule->getCouleurs() as $key => $value) {
+                $i = 0;?>
+                <form action="" method="POST" class="crea_form">
+                    <span class="choixPlus fas fa-plus"></span>
+                   <div class="couleur_suppl"></div>  
+                <?php foreach ($vehicule->getCouleurs() as $key => $value) {
                     if($i != 0){
-                        echo '<span><input type="color" name="couleurs1" value="'.$vehicule->getCouleurs()[$i].'"'.$vehicule->getCouleurs()[$i].'</span>';
+                        echo '<span><input type="color" name="couleurs[]" value="'.$value.'"'.$value.'</span>';
                     }
                     else{
+                        // var_dump($vehicule->getCouleurs()[$i]);
                         echo '<input type="hidden" name="id" value="'.$vehicule->getId().'">';
-                        echo '<span><input type="color" name="couleurs" value="'.$vehicule->getCouleurs()[$i].'"'.$vehicule->getCouleurs()[$i].'</span>';
+                        echo '<span><input type="color" name="couleurs[]" value="'.$vehicule->getCouleurs()[$i].'"'.$vehicule->getCouleurs()[$i].'</span>';
                     }
                     $i++;
                 }

@@ -72,6 +72,7 @@
                 $data = filter_input_array(INPUT_POST, $data);
             }
             // var_dump($data);die;
+            
             $keys = array_keys($data);
             $values = array_values($data);
             // var_dump($data);die;
@@ -83,7 +84,7 @@
             return DAO::insert($sql);
         }
         public function update($data,$id){
-            // var_dump($data);
+            // var_dump($data);die;
             $keys = array_keys($data);
             $values = array_values($data);
             $sql = "UPDATE ".$this->tableName."

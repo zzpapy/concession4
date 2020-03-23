@@ -59,9 +59,9 @@
             ];
         }
         public function traitementCrea($tab,$file){
-                // var_dump($tab);die;
+               
             if(isset($_FILES) && !empty($_FILES["fileToUpload"]["name"])){
-
+                
                 $target_dir = "public/images/";
                 $target_file = $target_dir . basename($file["fileToUpload"]["name"]);
                 $uploadOk = 1;
@@ -87,29 +87,36 @@
                 // if ($file["fileToUpload"]["size"] > 500000) {
                     // echo "Sorry, your file is too large.";
                     // $uploadOk = 0;
-                // }
-                // Allow certain file formats
-                if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-                && $imageFileType != "gif" ) {
-                    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-                    $uploadOk = 0;
-                }
-                // Check if $uploadOk is set to 0 by an error
-                if ($uploadOk == 0) {
-                    echo "Sorry, your file was not uploaded.";
-                    // if everything is ok, try to upload file
-                } else {
-                    if (move_uploaded_file($file["fileToUpload"]["tmp_name"], $target_file)) {
-                        echo "The file ". basename( $file["fileToUpload"]["name"]). " has been uploaded.";
-                    } else {
-                        echo "Sorry, there was an error uploading your file.";
+                    // }
+                    // Allow certain file formats
+                    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+                    && $imageFileType != "gif" ) {
+                        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+                        $uploadOk = 0;
                     }
+                    // Check if $uploadOk is set to 0 by an error
+                    if ($uploadOk == 0) {
+                        echo "Sorry, your file was not uploaded.";
+                        // if everything is ok, try to upload file
+                    } else {
+                        if (move_uploaded_file($file["fileToUpload"]["tmp_name"], $target_file)) {
+                            echo "The file ". basename( $file["fileToUpload"]["name"]). " has been uploaded.";
+                        } else {
+                            echo "Sorry, there was an error uploading your file.";
+                        }
+                    }
+                    $tab["photo"] = $target_file;
                 }
-                $tab["photo"] = $target_file;
-            }
-            $man = new VehiculeManager($tab);
-            $tab["couleurs"] = json_encode([$tab["couleurs"],$tab["couleurs1"]]);
-            unset($tab["couleurs1"]);           
+                $man = new VehiculeManager($tab);
+
+                $i = 0;
+                $colors = [];
+                while($i < count($tab["couleurs"])){
+                    array_push($colors,$tab["couleurs"][$i]);
+                    $i++;
+                }
+                $tab["couleurs"] = json_encode($colors);
+                // var_dump($tab["couleurs"]);die;
             
             $new = $man->add($tab);
             header("location:index.php?action=index");
@@ -123,7 +130,14 @@
             $man = new VehiculeManager($tab);
             $id = $tab["id"];
             unset($tab["id"]);
-            $tab["couleurs"] = json_encode([$tab["couleurs"],$tab["couleurs1"]]);
+            $i = 0;
+            $colors = [];
+            while($i < count($tab["couleurs"])){
+                array_push($colors,$tab["couleurs"][$i]);
+                $i++;
+            }
+            $tab["couleurs"] = json_encode($colors);
+            // var_dump($tab["couleurs"]);die;
             unset($tab["couleurs1"]);
             unset($tab["action"]);
             $new = $man->update($tab,$id);

@@ -25,6 +25,7 @@
             $result = $ctrl->$action($id);
         }
         if(isset($_POST["action"]) && $_POST["action"]=="update"){
+            // var_dump($_POST);die;
             $action = "update";
             $nom = $_POST;
             $id = $_POST["id"];

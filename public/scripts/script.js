@@ -67,4 +67,9 @@ $(".link").on('click',function(){
     $(".lien").toggleClass('hide');
     $(".upload").toggleClass('hide');
 })
+$(".choixPlus").on("click",function(){
+    console.log("toto")
+    $(".couleur_suppl").append('<div class = "suppl"> <label for="">couleur n° 2</label>'+
+    '<input type="color" name="couleurs[]" placeholder="couleur" value=""></div>')
+})
 
