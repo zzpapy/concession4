@@ -41,7 +41,6 @@ $("#recherche").on("keyup", function(){
                         i++    
                    }
                    if($("#recherche").val() == 0){
-                       console.log($(".affich").length)
                        $(".affich").empty()
                    }
             }
@@ -60,4 +59,12 @@ $("#recherche").on("keyup", function(){
 //     $(this).addClass("hide")
 //     $(".nav").removeClass("hide")
 // })
+$(".upload").on('click',function(){
+    $(".up").toggleClass('hide');
+    $(".link").toggleClass('hide');
+})
+$(".link").on('click',function(){
+    $(".lien").toggleClass('hide');
+    $(".upload").toggleClass('hide');
+})
 

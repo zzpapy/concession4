@@ -48,6 +48,19 @@
     box-shadow: 2px 2px 2px black;
     border-radius: 5%;
 }
+.voiture_crea{
+    border: 1px solid black;
+    margin: 1em;
+    padding: 1em;
+    background: white;
+    box-shadow: 2px 2px 2px black;
+    border-radius: 5%;
+    width: 40%;
+    text-transform: uppercase;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
 .photo{
     width:15.6em;
     height: 15.6em;
@@ -61,8 +74,11 @@ img{
     text-align: center;
     padding: 1em;
 }
-.nav input{
+input{
     line-height: 2em;
+    padding: 0.5em;
+    border: 1px solid rgb(0,0,0,0.5);
+    box-shadow: 1px 1px 1px 1px rgb(0,0,0,0.5);
 }
 .color_head{
     background: rgb(0,0,0,0.5);
@@ -119,6 +135,10 @@ img{
     /* width: 50%; */
     margin: auto;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height:35em;
 }
 .crea_form div{
     padding: 0.5em;
@@ -127,6 +147,22 @@ img{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+}
+.affich a{
+    overflow: hidden;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    background: white;
+    margin: 1em 1em;
+    box-shadow: 2px 2px 2px black;
+    width: 25%;
+    /* text-shadow: 1px 1px 1px black; */
+    font-size: 1em;
+    text-align: center;
+}
+.affich a:hover img{
+    transform: scale(1.5);
 }
 .affich > div{
     width: 25%;
@@ -138,3 +174,27 @@ img{
     width: 100%;
     margin: 0;
 }
+.upload,.link{
+    padding:0 1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin:1em;
+    border: 1px solid black;
+}
+.button{
+    display:inline-block ;
+    padding: 0.3em 1.2em;
+    margin: 0 0.3em 0.3em 0;
+    border-radius: 2em;
+    box-sizing: border-box;
+    color: #FFF;
+    background-color:#aaa;
+    text-align: center;
+    transition: all 0.2s;
+    cursor: pointer;
+    
+}
+.button:hover{
+    background-color:#000 ;
+}
+

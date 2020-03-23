@@ -63,6 +63,13 @@
                 $data = filter_input_array(INPUT_POST, $data);
                 $data["couleurs"] = $couleurs;
             }
+            else{
+                $data = array(
+                    'origine'   => FILTER_SANITIZE_STRING,
+                    'nom'      => FILTER_SANITIZE_STRING                    
+                );
+                $data = filter_input_array(INPUT_POST, $data);
+            }
             $keys = array_keys($data);
             $values = array_values($data);
             // var_dump($data);die;

@@ -58,7 +58,7 @@
                 ]
             ];
         }
-            public function traitementCrea($tab,$file){
+        public function traitementCrea($tab,$file){
                 // var_dump($tab);die;
             if(isset($_FILES) && !empty($_FILES["fileToUpload"]["name"])){
 

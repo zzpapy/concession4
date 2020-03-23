@@ -19,8 +19,8 @@
     <!-- <button id="ajaxbtn">Surprise en Ajax !</button> -> cliqué <span id="nbajax">0</span> fois -->
     <h4>recherche véhicules par plaques</h4>
     <input type="text" id="recherche">
-    <div class="affich"></div>
 </div>
+<div class="affich"></div>
 <div class="container">
     <?php 
     echo $page;

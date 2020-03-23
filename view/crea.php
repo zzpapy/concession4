@@ -1,7 +1,7 @@
 <?php 
     // var_dump($result);
 ?>
-<div class="voiture">
+<div class="voiture_crea">
     <h1>Création véhicule</h1>
     <form action="" method="POST" class="crea_form" enctype="multipart/form-data">
         <div>        
@@ -37,15 +37,16 @@
         </div>
         <div>   
         <div>
-            <p>choisir upload ou lien</p>
+            <p>photo</p>
         </div>
-            <input type="file" name="fileToUpload" id="fileToUpload">  
-            <input type="text" name='photo' placeholder="url photo">        
+        <span class="upload">upload</span><span class="link">lien</span>
+            <input class="hide up" type="file" name="fileToUpload" id="fileToUpload">  
+            <input class="hide lien" type="text" name='photo' placeholder="url photo">        
         </div>
-        <div><input  type="submit"></div>
+        <input class="button" type="submit">
     </form>
 </div>
-<div class="voiture">
+<div class="voiture_crea">
     <h1>Création marque</h1>
     <form action="" method="POST" class="crea_form">
         <div>        
@@ -54,7 +55,7 @@
         <div>        
             <input type="text" name='origine' placeholder="origine">        
         </div>
-        <input type="submit">
+        <input class="button" type="submit">
     </form>
 </div>
 <!-- <div class="voiture">
