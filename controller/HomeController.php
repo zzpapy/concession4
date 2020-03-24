@@ -110,24 +110,24 @@
             $res = $man->recherche($char);
             $i = 0;
             $tab = [];
-            // if(!is_null($res)){
-            //     if(is_object($res) ){
-            //         return json_encode(["immat"=>$res->getImmat(),"id"=>$res->getId(),"photo"=>$res->getPhoto()]);
-            //     }
-            //     else{
-            //         while($i < count($res)){
-            //             array_push($tab,["immat"=>$res[$i]->getImmat(),"id"=>$res[$i]->getId(),"photo"=>$res[$i]->getPhoto()]);
-            //             $i++;
-            //         }
-            //     }
-            // }
-            while($i < count($res)){
-                $immat = $res[$i]->getImmat();
-                $id =$res[$i]->getId();
-                $photo = $res[$i]->getPhoto();
-                // var_dump($photo);
-                include(VIEW_DIR."ajax.php");
-                $i++;           
+            if($res){
+                if(is_object($res) ){
+                    $immat = $res->getImmat();
+                    $id =$res->getId();
+                    $photo = $res->getPhoto();
+                    // var_dump($photo);
+                    include(VIEW_DIR."ajax.php");
+                }
+                else{
+                    while($i < count($res)){
+                        $immat = $res[$i]->getImmat();
+                        $id =$res[$i]->getId();
+                        $photo = $res[$i]->getPhoto();
+                        // var_dump($photo);
+                        include(VIEW_DIR."ajax.php");
+                        $i++;           
+                    }
+                }
             }
             // var_dump($res);
         }

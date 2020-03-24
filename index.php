@@ -31,6 +31,11 @@
             $id = $_POST["id"];
             $result = $ctrl->$action($nom,$id);
         }
+        if(isset($_POST["motorisation"]) && !empty($_POST)){
+            $action = "traitementMotor";
+            $id = $_POST;
+            $result = $ctrl->$action($id);
+        }
     }
     else $action = "index"; 
     $id = null;

@@ -103,16 +103,19 @@ input{
 .nav_layout{
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    justify-content: center;
 }
 .nav_layout a{
-    padding: 0 1em;
+    padding:  0.5em;
     text-decoration: none;
     display: inline-block;
     text-transform: uppercase;
     background: white;
-    /* margin: 1em 1em; */
+    margin: 0.5em 1em;
     box-shadow: 2px 2px 2px black;
-    width: 15%;
+    /* width: 15%; */
     text-shadow: 1px 1px 1px black;
     font-size: 1.5em;
 

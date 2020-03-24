@@ -42,8 +42,15 @@ $("#recherche").on("keyup", function(){
             nb : $("#recherche").val()
         },
         function(result){
-            $(".affich").html('')
-            $(".affich").html(result)
+            console.log( result.length)
+            if(result.length == 0){
+                $(".affich").html("aucun résultat")
+            }
+            else{
+                $(".affich").html('')
+               $(".affich").html(result)
+
+            }
             if($("#recherche").val() == ''){
                 $(".affich").html('')
             }

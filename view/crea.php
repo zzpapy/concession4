@@ -34,8 +34,14 @@
         <div>        
             <input type="text" name='nb_portes' placeholder="nombre de portes">        
         </div>
-        <div>        
-            <input type="text" name='motorisation' placeholder="motorisation">        
+        <div> 
+            <select name="motorisation">
+                <option value="">Motorisation</option>
+                <option value="SP">SP</option>
+                <option value="diesel">Diesel</option>
+                <option value="hybr">Hybride</option>
+                <option value="elec">Electrique</option>
+            </select>       
         </div>
         <div>   
         <div>
@@ -60,14 +66,15 @@
         <input class="button" type="submit">
     </form>
 </div>
-<!-- <div class="voiture">
-    <h1>Afficher véhicules par marques</h1>
-    <form action="" class="crea_form">
-        <a href=""></a>
-        <?php
-            // foreach ($result['data'] as $key => $value) {
-            //     echo "<div><a href='index.php?action=liste&nom=".$value->getNom()."&id=".$value->getId()."'>".$value->getNom()."</a></div>";
-            // }
-        ?>
+<div class="voiture_crea">
+    <h1>Création motorisation</h1>
+    <form action="" method="POST" class="crea_form">
+        <div>        
+            <input type="text" name='motorisation' placeholder="Nom">        
+        </div>
+        <div>        
+            <input type="text" name='origine' placeholder="origine">        
+        </div>
+        <input class="button" type="submit">
     </form>
-</div> -->
+</div>
