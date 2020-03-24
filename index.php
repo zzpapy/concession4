@@ -1,6 +1,6 @@
 <?php
     namespace App;
-// var_dump($_GET["action"]);
+// var_dump($result);
     use Controller\HomeController;
 
     define('DS', DIRECTORY_SEPARATOR); // le caractère séparateur de dossier (/ ou \)
