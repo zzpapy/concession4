@@ -59,7 +59,6 @@
             ];
         }
         public function traitementCrea($tab,$file){
-               
             if(isset($_FILES) && !empty($_FILES["fileToUpload"]["name"])){
                 
                 $target_dir = "public/images/";
@@ -108,7 +107,7 @@
                     $tab["photo"] = $target_file;
                 }
                 $man = new VehiculeManager($tab);
-
+                
                 $i = 0;
                 $colors = [];
                 while($i < count($tab["couleurs"])){
@@ -117,8 +116,9 @@
                 }
                 $tab["couleurs"] = json_encode($colors);
                 // var_dump($tab["couleurs"]);die;
-            
-            $new = $man->add($tab);
+                
+                $new = $man->add($tab);
+                // var_dump($new);die;
             header("location:index.php?action=index");
         }
         public function traitementMarque($tab){
