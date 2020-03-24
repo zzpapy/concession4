@@ -14,38 +14,38 @@ $("#ajaxbtn").on("click", function(){
     )
 })
 $("#recherche").on("keyup", function(){
-            // console.log( $("#recherche").val())
+            console.log( $("#recherche").val())
+            // var jqxhr = $.ajax( "index.php?action=recherche",
+            // {
+            //     nb : $("#recherche").val()
+            // } )
+            // .done(function(result) {
+            //     console.log(result)
+            //     alert( "success" );
+            // })
+            // .fail(function() {
+            //     alert( "error" );
+            // })
+            // .always(function() {
+            //     alert( "complete" );
+            // });
+            
+            // // Perform other work here ...
+            
+            // // Set another completion function for the request above
+            // jqxhr.always(function() {
+            // alert( "second complete" );
+            // });
     $.get(
         "index.php?action=recherche",
         {
             nb : $("#recherche").val()
         },
         function(result){
-            $(".affich").html('');
-           i = 0
-        //    console.log(Array.isArray(JSON.parse(result)))
-           if(!Array.isArray(JSON.parse(result))){
-               photo = JSON.parse(result)["photo"]
-               $(".affich").append("<div><div><a href='?action=voir&id="+JSON.parse(result).id+"><div class='voiture_js'><img src="+photo+">"+JSON.parse(result).immat+"</a></div></div>")
-               console.log(JSON.parse(result).immat)
-            }
-            else if(JSON.parse(result).length != 0){
-                
-               //    $.get(
-                   //        "index.php.action=liste_recherche&id="+JSON.parse(result)+""
-                   //    )
-                   while(i < JSON.parse(result).length){
-                        // console.log(JSON.parse(result)[i]["photo"])
-                        photo = JSON.parse(result)[i]["photo"]
-                        $(".affich").append("<div><div><a href='?action=voir&id="+JSON.parse(result)[i]["id"]+"'>"+JSON.parse(result)[i]["immat"]+"<img src="+photo+"></a></div></div>")
-                        i++    
-                   }
-                   if($("#recherche").val() == 0){
-                       $(".affich").empty()
-                   }
-            }
-            else{
-            $(".affich").append("<div>pas de résultats</div>")
+            $(".affich").html('')
+            $(".affich").html(result)
+            if($("#recherche").val() == ''){
+                $(".affich").html('')
             }
         }
     )

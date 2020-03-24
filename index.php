@@ -48,6 +48,7 @@
         echo $result;//on affiche directement le return du contrôleur (càd la réponse HTTP sera uniquement celle-ci)
     }
     else if($action == "recherche"){
+        // var_dump($result);
         echo($result);
     }
     else{
